@@ -1,0 +1,65 @@
+<!-- ------------------------------ Home elements ------------------------------ -->
+<div class="container">
+  <!--------------------- Header ------------------->
+  <div class="row row-content" *ngIf="album">
+    <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+      <div class="card">
+        <img src="../../assets/img/song.png" class="card-img-top" alt="s">
+        <div class="card-body">
+          <h2 class="card-title text-center">{{albumData.name}}</h2>
+          <p class="card-text">{{album.info}}</p>
+          <div class="row">
+            <div class="col">
+              <a class="btn btn-success btn-block" (click)="like()">Like</a>
+            </div>
+            <div class="col" *ngIf="_auth.loggedIn()">
+              <a class="btn btn-primary btn-block" (click)="subscribe(album._id)">Subscribe</a>
+            </div>
+            <div class="col">
+              <a class="btn btn-danger btn-block" (click)="dislike()">Dislike</a>
+            </div>
+          </div>
+          <div class="alert alert-danger mt-3 text-center" role="alert" *ngIf="err">
+            {{err}}
+          </div>
+          <div class="alert alert-success mt-3 text-center" role="alert" *ngIf="success">
+            {{success}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--------------------- Songs ------------------->
+  <div class="row row-content" *ngIf="album">
+    <div class="col-12">
+      <div class="col text-center">
+        <h2>Enjoy your listening</h2>
+      </div>
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action" *ngFor="let num of nums">
+          <div class="row">
+            <div class="col-2">
+              {{num}}
+            </div>
+            <div class="col-4" id="song0">
+              {{album.songs[num].name}}
+            </div>
+            <div class="col-3" id="song00">
+              {{album.songs[num].author}}
+            </div>
+            <div class="col-1">
+              <img src="../../assets/img/play.png" alt="p" height="20" width="20">
+            </div>
+            <div class="col-1">
+              <img src="../../assets/img/pause.png" alt="p" height="20" width="20">
+            </div>
+            <div class="col-1">
+              <img src="../../assets/img/stop.png" alt="p" height="20" width="20">
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
