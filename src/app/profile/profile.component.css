@@ -1,0 +1,29 @@
+* {
+  border-radius: 10px;
+}
+
+.media {
+  border: 1px solid #ccc;
+}
+
+.media:hover {
+  border: 1px solid #0f0;
+  cursor: pointer;
+}
+
+.delete {
+  cursor: pointer;
+  color: red;
+}
+
+.delete:hover {
+  text-decoration: underline;
+}
+
+.colored {
+  color: #FF0000;
+}
+
+.colored:hover {
+  color: #AA0000;
+}
